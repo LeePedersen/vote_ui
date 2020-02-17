@@ -56,10 +56,10 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    binding.pry
-    authorize_author(@post)
-    @post.destroy
-    redirect_to posts_path
+    if authorize_author(@post)
+      @post.destroy
+      redirect_to posts_path
+    end
   end
 
   private
