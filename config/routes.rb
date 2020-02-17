@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy'
 
   # Post routes
-  resources :posts
+  resources :posts do
+    resources :replies
+  end
 
   # Information routes
   resources :information

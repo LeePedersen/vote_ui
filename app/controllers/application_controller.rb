@@ -34,6 +34,7 @@ class ApplicationController < ActionController::Base
       flash[:alert] = "You are not authorized to access that feature."
       redirect_to '/posts' and return
     end
+    true
   end
 
   def updated_at

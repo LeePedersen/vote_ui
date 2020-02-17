@@ -38,7 +38,7 @@
     }).mouseover();
 
     $(document).on('click', ".state-click", function() {
-      var id = this.className.animVal.split(" ")[1];
+      var id = parseInt(this.className.animVal.split(" ")[1]);
       window.location.replace(`http://localhost:3000/information/${id}`);
       // window.location.reload();
     });

@@ -1,0 +1,15 @@
+<%= render "layouts/errors", :object => @user %>
+
+<%= render "layouts/nav_bar" %>
+<h1 class="forum-header">New post</h1>
+
+<div class="container post-form">
+  <%= form_for @post do |f| %>
+    <%= f.hidden_field(:name, :value => @user.name) %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %><br>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %><br>
+    <%= f.submit %><br>
+  <% end %>
+</div>
