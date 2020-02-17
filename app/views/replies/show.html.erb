@@ -1,13 +1,11 @@
 <%= render "layouts/nav_bar" %>
-<h1 class="forum-header"><%= @post.title %></h1>
-<h2><%= @post.name %></h2>
-<p><%= @post.content %></p>
+<h1 class="forum-header"><%= @reply.title %></h1>
+<h2><%= @reply.name %></h2>
+<p><%= @reply.content %></p>
 
-<% if @user && @post.name == @user.name %>
-  <p><%= link_to "Edit", edit_post_path(@post) %></p>
-  <p><%= link_to "Delete post", post_path(@post),
+<% if @user && @reply.name == @user.name %>
+  <p><%= link_to "Edit", edit_post_reply_path(@post, @reply) %></p>
+  <p><%= link_to "Delete post", post_reply_path(@post, @reply),
                           :data => {:confirm => "Are you sure?",
                                          :method => "delete"} %></p>
 <% end %>
-
-<p><%= link_to "Return to forum", posts_path %></p>

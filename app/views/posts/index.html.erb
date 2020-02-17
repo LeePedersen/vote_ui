@@ -13,7 +13,7 @@
     <p class="post-title"><%= link_to post.title, post_path(post) %>, by <%= post.name %></p>
     <p class="post-content"><%= post.content %></p>
     <p>Written <%= post.created_at %></p>
-    <p><%= link_to "Reply", new_post_path %></p>
+    <p><%= link_to "#{post.replies.length} replies", post_replies_path(post) %></p>
   </div>
   <% end %>
 <% else %>

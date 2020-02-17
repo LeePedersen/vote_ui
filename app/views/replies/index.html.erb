@@ -6,12 +6,13 @@
   <% @post.replies = @post.replies.sort_by(&:created_at).reverse %>
   <% @post.replies.each do |reply| %>
   <div class="container reply">
-    <p class="reply-title"><%= link_to reply.title, reply_path(reply) %>, by <%= reply.name %></p>
+    <p class="reply-title"><%= link_to reply.title, post_reply_path(@post, reply) %>, by <%= reply.name %></p>
     <p class="reply-content"><%= reply.content %></p>
     <p>Written <%= reply.created_at %></p>
-    <p><%= link_to "Reply", new_post_reply_path %></p>
   </div>
   <% end %>
 <% else %>
   <p>There are no replies for this post yet.</p>
 <% end %>
+
+<p><%= link_to "Reply", new_post_reply_path %></p>
